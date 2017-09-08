@@ -37,7 +37,11 @@ $cars = array(
     "Opel" => $opel
 );
 
+echo '<table rules="all" border ="2" cellpadding="20" > ';
+
 foreach ($cars as $key => $value) {
+    echo "<tr><td>";
     echo  "<dt>CAR $key:</dt>";
     foreach($value as $elem) echo "$elem ";
+    echo "</td></tr>";
 }

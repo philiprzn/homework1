@@ -5,25 +5,27 @@ $cols = 10; // количество столбцов, td
 
 echo '<table border="1">';
 
-for ($tr=1; $tr<=$rows; $tr++){ // в этом цикле счётчик $tr
-    // следит за количеством строк и всегда равен текущему номеру строки.
-    // То есть в начале $tr=1, так как в начале у нас 1 строка, затем
-    // каждый раз прибавляем единицу, пока не дойдём до заданного количества
-    // $rows.
-    $i = $tr*$td;
+echo '<table rules="all" border ="1" cellpadding="10" >';
+
+for ($i = 0; $i <= $rows; $i++){
     echo '<tr>';
-    for ($td=1; $td<=$cols; $td++){ // в этом цикле счётчик $td аналогичен
-        // счётчику $tr.
-        echo '<td>'. $tr*$td .'</td>';
+    for ($j = 0; $j <= $cols; $j++){
+        if ($i === 0 ) {
+            echo "<td>$j</td>";
+        } elseif ($j === 0) {
+            echo "<td>$i</td>";
+        } elseif (($j % 2 === 0) && ($i % 2 === 0)) {
+            echo "<td>(" . $i*$j . ")</td>";
+        } elseif (($j % 2 === 1) && ($i % 2 === 1)) {
+            echo "<td>[" . $i*$j . "]</td>";
+        } else {
+            echo "<td>" . $i*$j . "</td>";
+        }
     }
-    echo '</tr>';
-
-    if (($i % 2) == 0) echo "($i)";
-        elseif (($i % 2) == 1) echo "[$i}";
-        else echo $i;
+    echo "</tr>";
 }
-
-echo '</table>' . '<br>';
+echo "</table>";
+echo "<br><br>";
 
 
 ?>
